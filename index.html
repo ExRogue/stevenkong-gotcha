@@ -3,160 +3,212 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>oof.</title>
-  <meta property="og:title" content="👀 You really clicked that?" />
-  <meta property="og:description" content="Imagine being subscribed." />
+  <title>Account suspended · @stevenkong94</title>
+  <meta property="og:title" content="@stevenkong94 · Subscription unavailable" />
+  <meta property="og:description" content="This OnlyFans was never real. But your click was." />
   <meta name="theme-color" content="#00AFF0" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { height: 100%; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background: #000;
-      color: #fff;
+      background: #f4f4f4;
+      color: #1a1a1a;
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 24px 16px 60px;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    .container {
+    .card {
       max-width: 520px;
       width: 100%;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
     }
-    .top-row {
+    .banner {
+      height: 140px;
+      background: linear-gradient(135deg, #00AFF0 0%, #0098d4 100%);
+      position: relative;
+    }
+    .banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 40%);
+    }
+    .avatar-wrap {
       display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 28px;
+      justify-content: center;
+      margin-top: -48px;
+      position: relative;
+      z-index: 2;
     }
-    .of-mark {
-      width: 56px;
-      height: 56px;
+    .avatar {
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       background: #00AFF0;
+      border: 4px solid #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      font-size: 26px;
       color: #fff;
-      letter-spacing: -1px;
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -2px;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
-    .of-mark span { transform: translateY(-1px); }
-    .handle {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+    .avatar span { transform: translateY(-2px); display: inline-block; }
+    .profile-head {
+      text-align: center;
+      padding: 14px 24px 0;
     }
-    .handle .name {
-      font-size: 16px;
+    .display-name {
+      font-size: 22px;
       font-weight: 700;
+      color: #1a1a1a;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .verified {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: #00AFF0;
       color: #fff;
-    }
-    .handle .at {
-      font-size: 14px;
-      color: #888;
-    }
-    h1 {
-      font-size: clamp(72px, 18vw, 140px);
-      font-weight: 900;
-      letter-spacing: -5px;
-      color: #fff;
-      line-height: 0.9;
-      margin-bottom: 14px;
-    }
-    h1 .blue { color: #00AFF0; }
-    h1 .dot { color: #00AFF0; }
-    .tagline {
-      font-size: 20px;
-      color: #ccc;
-      line-height: 1.4;
-      margin-bottom: 32px;
-      font-weight: 500;
-    }
-    .tagline .small-text {
-      display: block;
-      color: #666;
-      font-size: 15px;
-      font-weight: 400;
-      margin-top: 6px;
-    }
-    .counter-box {
-      background: #0d0d0d;
-      border: 1px solid #1a1a1a;
-      border-left: 3px solid #00AFF0;
-      border-radius: 10px;
-      padding: 22px 24px;
-      margin-bottom: 14px;
-    }
-    .counter-label {
+      border-radius: 50%;
       font-size: 11px;
-      color: #00AFF0;
-      text-transform: uppercase;
-      letter-spacing: 1.6px;
-      margin-bottom: 6px;
-      font-weight: 700;
+      line-height: 18px;
+      text-align: center;
+      font-weight: 900;
     }
-    .counter {
-      font-size: clamp(40px, 11vw, 64px);
+    .handle {
+      font-size: 15px;
+      color: #888;
+      margin-top: 2px;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff0f0;
+      color: #d92d2d;
+      border: 1px solid #ffd6d6;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 12px;
+    }
+    .status-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d92d2d;
+      animation: blink 1.4s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: 0.3 } }
+
+    .body {
+      padding: 28px 28px 28px;
+    }
+    .headline {
+      font-size: clamp(36px, 9vw, 56px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: #1a1a1a;
+      line-height: 1;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .headline .blue { color: #00AFF0; }
+    .sub {
+      text-align: center;
+      color: #555;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+    .sub strong { color: #1a1a1a; }
+
+    .stat-card {
+      background: #fafafa;
+      border: 1px solid #ececec;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: clamp(34px, 9vw, 52px);
       font-weight: 800;
+      color: #00AFF0;
       font-variant-numeric: tabular-nums;
-      color: #fff;
-      margin-bottom: 4px;
       letter-spacing: -1.5px;
       line-height: 1;
+      margin-bottom: 4px;
     }
-    .breakdown {
+    .stat-meta {
       font-size: 13px;
-      color: #666;
+      color: #888;
       font-variant-numeric: tabular-nums;
     }
     .position {
-      font-size: 15px;
-      color: #888;
-      margin-bottom: 28px;
-      padding: 0 4px;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin: 16px 0 24px;
     }
-    .position strong {
-      color: #fff;
-      font-variant-numeric: tabular-nums;
-      font-weight: 700;
-    }
-    .flex-list {
-      background: #0a0a0a;
-      border: 1px solid #161616;
+    .position strong { color: #1a1a1a; font-variant-numeric: tabular-nums; }
+
+    .milestones {
+      background: #fafafa;
+      border: 1px solid #ececec;
       border-radius: 10px;
-      padding: 16px 20px;
-      margin-bottom: 32px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
     }
-    .flex-list h3 {
+    .milestones h3 {
       font-size: 11px;
-      color: #666;
+      color: #888;
       text-transform: uppercase;
-      letter-spacing: 1.6px;
-      margin-bottom: 10px;
+      letter-spacing: 1.5px;
       font-weight: 700;
+      margin-bottom: 6px;
     }
-    .flex-list ul { list-style: none; }
-    .flex-list li {
-      padding: 8px 0;
-      color: #ddd;
-      font-size: 15px;
+    .milestones ul { list-style: none; }
+    .milestones li {
+      padding: 9px 0;
+      font-size: 14px;
+      color: #1a1a1a;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      border-bottom: 1px solid #141414;
+      border-bottom: 1px solid #ececec;
       transition: color 0.4s ease;
     }
-    .flex-list li:last-child { border: none; }
-    .flex-list li.locked { color: #2c2c2c; }
-    .flex-list li .check {
+    .milestones li:last-child { border: none; }
+    .milestones li.locked { color: #ccc; }
+    .milestones li .check {
       font-size: 11px;
       color: #00AFF0;
       font-weight: 700;
@@ -164,12 +216,13 @@
       opacity: 0;
       transition: opacity 0.4s ease;
     }
-    .flex-list li:not(.locked) .check { opacity: 1; }
+    .milestones li:not(.locked) .check { opacity: 1; }
+
     .subscribe-btn {
       display: block;
       width: 100%;
       background: #00AFF0;
-      color: #fff;
+      color: #fff !important;
       text-decoration: none;
       padding: 17px 24px;
       border-radius: 6px;
@@ -179,71 +232,78 @@
       text-transform: uppercase;
       text-align: center;
       transition: background 0.15s ease, transform 0.15s ease;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .subscribe-btn:hover {
-      background: #0095cc;
+      background: #0098d4;
       transform: translateY(-1px);
     }
     .subscribe-btn:active { transform: translateY(0); }
     .subscribe-price {
       font-size: 13px;
-      color: #666;
+      color: #888;
       text-align: center;
-      margin-bottom: 28px;
     }
-    .subscribe-price s { color: #444; margin-right: 6px; }
+    .subscribe-price s { color: #bbb; margin-right: 6px; }
+
     .footnote {
-      color: #333;
-      font-size: 12px;
+      color: #aaa;
+      font-size: 11px;
       text-align: center;
-      line-height: 1.6;
-      letter-spacing: 0.2px;
+      margin-top: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body { background: #f4f4f4; color: #1a1a1a; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="top-row">
-      <div class="of-mark"><span>Of</span></div>
-      <div class="handle">
-        <div class="name">Steven Kong</div>
-        <div class="at">@stevenkong94 · subscriber</div>
+  <div class="card">
+    <div class="banner"></div>
+
+    <div class="avatar-wrap">
+      <div class="avatar"><span>Of</span></div>
+    </div>
+
+    <div class="profile-head">
+      <div class="display-name">Steven Kong <span class="verified">✓</span></div>
+      <div class="handle">@stevenkong94</div>
+      <div class="status-pill"><span class="dot"></span>Account suspended</div>
+    </div>
+
+    <div class="body">
+      <h1 class="headline">404.</h1>
+      <p class="sub"><strong>This OnlyFans never existed.</strong><br/>You really clicked it though.</p>
+
+      <div class="stat-card">
+        <div class="stat-label">Lifetime imaginary earnings</div>
+        <div class="stat-value" id="amount">$0.00</div>
+        <div class="stat-meta" id="breakdown">— clicks × $9.99/sub</div>
       </div>
+
+      <p class="position">You're click <strong id="position">#—</strong>. Welcome to the wall of shame.</p>
+
+      <div class="milestones">
+        <h3>What I could have bought</h3>
+        <ul id="milestones">
+          <li data-threshold="5"><span>☕ A coffee</span><span class="check">UNLOCKED</span></li>
+          <li data-threshold="50" class="locked"><span>🍕 Dinner for two</span><span class="check">UNLOCKED</span></li>
+          <li data-threshold="500" class="locked"><span>✈️ Weekend in Lisbon</span><span class="check">UNLOCKED</span></li>
+          <li data-threshold="2000" class="locked"><span>💻 New MacBook</span><span class="check">UNLOCKED</span></li>
+          <li data-threshold="10000" class="locked"><span>🚗 Tesla deposit</span><span class="check">UNLOCKED</span></li>
+          <li data-threshold="100000" class="locked"><span>🏝️ Early retirement</span><span class="check">UNLOCKED</span></li>
+        </ul>
+      </div>
+
+      <a class="subscribe-btn" href="https://instagram.com/stevenkong94" target="_blank" rel="noopener">
+        Subscribe on Instagram →
+      </a>
+      <p class="subscribe-price"><s>$9.99 / month</s> Free, @stevenkong94</p>
+
+      <p class="footnote">your click was counted · your shame was logged</p>
     </div>
-
-    <h1>oo<span class="blue">f</span><span class="dot">.</span></h1>
-    <p class="tagline">
-      You really clicked that.
-      <span class="small-text">Imagine being subscribed.</span>
-    </p>
-
-    <div class="counter-box">
-      <div class="counter-label">Lifetime imaginary earnings</div>
-      <div class="counter" id="amount">$0.00</div>
-      <div class="breakdown" id="breakdown">— clicks × $9.99/sub</div>
-    </div>
-
-    <p class="position">You're click <strong id="position">#—</strong>. The wall of shame thanks you.</p>
-
-    <div class="flex-list">
-      <h3>What I could have bought</h3>
-      <ul id="milestones">
-        <li data-threshold="5"><span>☕ A coffee</span><span class="check">UNLOCKED</span></li>
-        <li data-threshold="50" class="locked"><span>🍕 Dinner for two</span><span class="check">UNLOCKED</span></li>
-        <li data-threshold="500" class="locked"><span>✈️ Weekend in Lisbon</span><span class="check">UNLOCKED</span></li>
-        <li data-threshold="2000" class="locked"><span>💻 New MacBook</span><span class="check">UNLOCKED</span></li>
-        <li data-threshold="10000" class="locked"><span>🚗 Tesla deposit</span><span class="check">UNLOCKED</span></li>
-        <li data-threshold="100000" class="locked"><span>🏝️ Early retirement</span><span class="check">UNLOCKED</span></li>
-      </ul>
-    </div>
-
-    <a class="subscribe-btn" href="https://instagram.com/stevenkong94" target="_blank" rel="noopener">
-      Subscribe to @stevenkong94 →
-    </a>
-    <p class="subscribe-price"><s>$9.99 / month</s> Free, on Instagram.</p>
-
-    <p class="footnote">your click was counted · your shame was logged</p>
   </div>
 
   <script>
