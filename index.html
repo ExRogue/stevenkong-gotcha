@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>👀 Caught you</title>
+  <meta property="og:title" content="👀 You really clicked that?" />
+  <meta property="og:description" content="Imagine clicking that link. Couldn't be me." />
+  <meta name="theme-color" content="#000000" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at top, #1a0033 0%, #000 60%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+    .eyes {
+      font-size: 88px;
+      animation: peek 2.6s ease-in-out infinite;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    @keyframes peek {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-10px) rotate(-6deg); }
+      75% { transform: translateY(-10px) rotate(6deg); }
+    }
+    h1 {
+      font-size: clamp(56px, 14vw, 110px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      background: linear-gradient(135deg, #ff006e, #ff8500, #ffbe0b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .subtitle {
+      font-size: 19px;
+      color: #bbb;
+      margin-bottom: 36px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .counter-box {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border: 1px solid #2a2a2a;
+      border-radius: 18px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+    .counter-label {
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .counter {
+      font-size: clamp(42px, 11vw, 76px);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: #00d26a;
+      text-shadow: 0 0 40px rgba(0, 210, 106, 0.45);
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+    .breakdown {
+      font-size: 13px;
+      color: #777;
+      font-variant-numeric: tabular-nums;
+    }
+    .position {
+      font-size: 17px;
+      color: #ddd;
+      margin-bottom: 32px;
+    }
+    .position strong {
+      color: #ff8500;
+      font-variant-numeric: tabular-nums;
+    }
+    .flex-list {
+      text-align: left;
+      background: #0d0d0d;
+      border: 1px solid #1f1f1f;
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 28px;
+    }
+    .flex-list h3 {
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .flex-list ul {
+      list-style: none;
+    }
+    .flex-list li {
+      padding: 10px 0;
+      color: #ddd;
+      border-bottom: 1px solid #1a1a1a;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: color 0.4s ease;
+    }
+    .flex-list li:last-child { border: none; }
+    .flex-list li.locked { color: #444; }
+    .flex-list li .check {
+      font-size: 14px;
+      color: #00d26a;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .flex-list li:not(.locked) .check { opacity: 1; }
+    .footer {
+      color: #888;
+      font-size: 14px;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    .footer a {
+      color: #ff006e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer a:hover { text-decoration: underline; }
+    .small {
+      color: #444;
+      font-size: 11px;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="eyes">👀</div>
+    <h1>GOTCHA</h1>
+    <p class="subtitle">You really thought I had an OnlyFans? 🫵😂<br/>I see you.</p>
+
+    <div class="counter-box">
+      <div class="counter-label">Lifetime imaginary earnings</div>
+      <div class="counter" id="amount">$0.00</div>
+      <div class="breakdown" id="breakdown">— clicks × $9.99/sub</div>
+    </div>
+
+    <p class="position">You are click <strong id="position">#—</strong> — welcome to the wall of shame.</p>
+
+    <div class="flex-list">
+      <h3>What I could have bought 💸</h3>
+      <ul id="milestones">
+        <li data-threshold="5"><span>☕ A coffee</span><span class="check">✓ unlocked</span></li>
+        <li data-threshold="50" class="locked"><span>🍕 Dinner for two</span><span class="check">✓ unlocked</span></li>
+        <li data-threshold="500" class="locked"><span>✈️ Weekend in Lisbon</span><span class="check">✓ unlocked</span></li>
+        <li data-threshold="2000" class="locked"><span>💻 New MacBook</span><span class="check">✓ unlocked</span></li>
+        <li data-threshold="10000" class="locked"><span>🚗 Down payment on a Tesla</span><span class="check">✓ unlocked</span></li>
+        <li data-threshold="100000" class="locked"><span>🏝️ Early retirement</span><span class="check">✓ unlocked</span></li>
+      </ul>
+    </div>
+
+    <p class="footer">
+      No hard feelings — follow me for real at <a href="https://instagram.com/stevenkong94">@stevenkong94</a>
+    </p>
+    <p class="small">Your click was counted. Your shame was logged. Have a nice day.</p>
+  </div>
+
+  <script>
+    const COUNTER_NAMESPACE = 'stevenkong94-gotcha-live';
+    const COUNTER_KEY = 'clicks';
+    const PER_CLICK = 9.99;
+
+    function format(n) {
+      return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function animateTo(el, target) {
+      const start = parseFloat(el.dataset.value || '0');
+      const duration = 1400;
+      const t0 = performance.now();
+      function step(now) {
+        const p = Math.min(1, (now - t0) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const v = start + (target - start) * eased;
+        el.textContent = format(v);
+        if (p < 1) requestAnimationFrame(step);
+        else el.dataset.value = String(target);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function updateMilestones(amount) {
+      document.querySelectorAll('#milestones li').forEach(li => {
+        const t = parseFloat(li.dataset.threshold);
+        if (amount >= t) li.classList.remove('locked');
+        else li.classList.add('locked');
+      });
+    }
+
+    async function bump() {
+      try {
+        const res = await fetch(`https://abacus.jasoncameron.dev/hit/${COUNTER_NAMESPACE}/${COUNTER_KEY}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error('counter unreachable');
+        const data = await res.json();
+        const count = data.value || 0;
+        const amount = count * PER_CLICK;
+        document.getElementById('position').textContent = '#' + count.toLocaleString();
+        const noun = count === 1 ? 'click' : 'clicks';
+        document.getElementById('breakdown').textContent = `${count.toLocaleString()} ${noun} × $${PER_CLICK.toFixed(2)}/sub`;
+        animateTo(document.getElementById('amount'), amount);
+        updateMilestones(amount);
+      } catch (e) {
+        document.getElementById('amount').textContent = '$∞';
+        document.getElementById('position').textContent = '#???';
+        document.getElementById('breakdown').textContent = 'counter offline — but the shame is real';
+      }
+    }
+
+    bump();
+  </script>
+</body>
+</html>
